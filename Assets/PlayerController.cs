@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if(context.performed)
+        if (context.performed)
         {
             inputVer = context.ReadValue<Vector2>();
         }
@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    
+
     void Update()
     {
         Move();
@@ -41,19 +41,19 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        //‰ñ“]
+       
         if (inputVer != Vector2.zero)
         {
             Quaternion qu = Quaternion.identity;
-            
+
             qu = Quaternion.Euler(-inputVer.y, 0, -inputVer.x);
-           
+
             model.transform.rotation *= qu;
         }
         else
         {
             Quaternion straight = Quaternion.identity;
-           
+
             model.transform.rotation = Quaternion.Slerp(model.transform.rotation, straight, Time.deltaTime * resetSpeed);
         }
 
