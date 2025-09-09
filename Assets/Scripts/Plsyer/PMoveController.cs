@@ -7,7 +7,7 @@ public class PMoveController : MonoBehaviour
     [SerializeField] private float rotationSpeed = 70f;    // 回転スピード
     [SerializeField] private float rollSpeed     = 6f;        // ロール（傾き）スピード
     [SerializeField] private float maxRollAngle  = 60f;     // 最大傾き角度
-    [SerializeField] private float maxPitch      = 80f;
+    [SerializeField] private float max        = 360f;
     [SerializeField] private Transform visualRoot;
 
   
@@ -35,8 +35,7 @@ public class PMoveController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 move = transform.forward * moveSpeed * Time.deltaTime;
-        rb.MovePosition(rb.position + move);
+        //rb.MovePosition(rb.position + transform.forward * moveSpeed * Time.deltaTime);
 
         Quaternion targetRote = Quaternion.Euler(Y, X, 0f);
         rb.MoveRotation(targetRote);
@@ -48,7 +47,13 @@ public class PMoveController : MonoBehaviour
 
         X += inputVer.x * rotationSpeed * dt;
         Y += -inputVer.y * rotationSpeed * dt;
-        Y  = Mathf.Clamp(Y, -maxPitch, maxPitch);
+        Y = Mathf.Clamp(Y, -max, max);
+
+        /*if(Y > maxdown)
+          {
+              Y = maxdown;
+          }*/
+
 
         transform.rotation = Quaternion.Euler(Y,X,0f);
        

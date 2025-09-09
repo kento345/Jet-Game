@@ -237,7 +237,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.23360606, y: -0.014283482, z: 0.0034310736, w: 0.97222036}
-  m_LocalPosition: {x: -0.3961059, y: 7.560943, z: -14.028311}
+  m_LocalPosition: {x: 0, y: 8, z: -14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -457,11 +457,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1209024153 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 245786235287117751, guid: 9bf10c6f6bfd8bf41bf20022529bdd9c, type: 3}
-  m_PrefabInstance: {fileID: 2129167141}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1443022002
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,7 +468,6 @@ GameObject:
   - component: {fileID: 1443022003}
   - component: {fileID: 1443022004}
   - component: {fileID: 1443022008}
-  - component: {fileID: 1443022009}
   - component: {fileID: 1443022005}
   - component: {fileID: 1443022006}
   - component: {fileID: 1443022007}
@@ -511,7 +505,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1443022002}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1588ca85e7d1f9b45812eac66911e6b7, type: 3}
   m_Name: 
@@ -520,7 +514,7 @@ MonoBehaviour:
   rotationSpeed: 70
   rollSpeed: 90
   maxRollAngle: 60
-  maxPitch: 80
+  max: 80
   visualRoot: {fileID: 2129167142}
 --- !u!114 &1443022005
 MonoBehaviour:
@@ -549,8 +543,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1443022009}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+      - m_Target: {fileID: 1443022004}
+        m_TargetAssemblyTypeName: PMoveController, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
@@ -635,6 +629,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1443022008}
+        m_TargetAssemblyTypeName: PShotController, Assembly-CSharp
+        m_MethodName: OnShot2
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 164aeace-c200-4df9-bf0a-13bda44daab4
+    m_ActionName: 'Player/Shot2[/Mouse/rightButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -696,32 +706,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1443022002}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b4612e00c4c8ea40b926136b13f2db9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 0}
-  rocketPrefab: {fileID: 0}
-  cutapult1: {fileID: 0}
-  cutapult2: {fileID: 0}
-  cutapult3: {fileID: 0}
---- !u!114 &1443022009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1443022002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2204e4c03c04a1545a800766c2709f1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  model: {fileID: 1209024153}
-  RoteSpeeed: 5
-  resetSpeed: 3
-  speed: 10
+  rocketPrefab: {fileID: 198992, guid: ccc28c624ccc8447baaafdd066120ef7, type: 3}
+  cutapult1: {fileID: 1520509674}
+  cutapult2: {fileID: 236298953}
+  cutapult3: {fileID: 1994507533}
 --- !u!1 &1520509673
 GameObject:
   m_ObjectHideFlags: 0
