@@ -49,10 +49,6 @@ public class PMoveController : MonoBehaviour
         Y += -inputVer.y * rotationSpeed * dt;
         Y = Mathf.Clamp(Y, -max, max);
 
-        /*if(Y > maxdown)
-          {
-              Y = maxdown;
-          }*/
 
 
         transform.rotation = Quaternion.Euler(Y,X,0f);
