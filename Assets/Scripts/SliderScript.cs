@@ -11,11 +11,12 @@ public class SliderScript : MonoBehaviour
 
     [SerializeField] private float speed = 5f;   //スライダーの上昇速度
 
-    public bool isDragg = false;                 //ドラッグ中フラグ
     private bool isMax = false;                  //スライダーがMaxになったフラグ
 
+    private Player2 player;
     void Start()
     {
+        player = GetComponent<Player2>();
         //スライダーの初期値を設定
         if (slide != null)
         {
@@ -35,12 +36,12 @@ public class SliderScript : MonoBehaviour
     public void Stock()
     {
         //Maxじゃないときまたはドラック中加算
-        if(!isMax　&& isDragg)
+        if(!isMax　&& player.isDragg)
         {
             bar++;
         }
         //ドラッグしてないときは減算
-        else if(!isDragg) 
+        if(!player.isDragg && bar != 0) 
         {
             bar--;
         }
@@ -50,10 +51,9 @@ public class SliderScript : MonoBehaviour
             slide.value = bar;
         }
         //Maxになるとフラグを立てる
-        if(bar == 1000)
+        if (bar == 1000)
         {
             isMax = true;
-            isDragg = true;
         }
     }
 }

@@ -11,7 +11,8 @@ public class Player2 : MonoBehaviour
     [SerializeField] private LayerMask EnemyLayer;  //敵Layer
     private SliderScript Slider;          //スライダー
     private bool isPres = false;
-    
+    public bool isDragg = false;                 //ドラッグ中フラグ
+
 
     public void OnShot(InputAction.CallbackContext context)
     {
@@ -24,6 +25,7 @@ public class Player2 : MonoBehaviour
         {
             isPres=false;
             selectObject = null;
+            isDragg = false;
         }
     }
 
@@ -35,6 +37,17 @@ public class Player2 : MonoBehaviour
     void Update()
     {
         Shot();
+        //スライダーの上昇処理
+        Slider.Stock();
+
+        if (selectObject != null)
+        {
+            isDragg = true ;
+        }
+        else 
+        {
+            isDragg = false;
+        }
     }
 
     void Shot()
@@ -48,16 +61,11 @@ public class Player2 : MonoBehaviour
             //ドラッグ中のObjがEnemyLayerか判定
             if (((1 << selectObject.gameObject.layer) & EnemyLayer) != 0)
             {
-                //スライダーの上昇処理
-                Slider.Stock();
-                Slider.isDragg = true;
-
                 //マウスのRyaがObjから離れたら
                 if (!Physics.Raycast(ray, out hit) || hit.collider.gameObject != selectObject)
                 {
                     //ドラッグ中のObj解除
                     selectObject = null;
-                    Slider.isDragg=false;
                 }
             }
         }
@@ -65,7 +73,6 @@ public class Player2 : MonoBehaviour
         {
             //ドラッグ中にRayが当たったらselectObjectをnullにする
             Dragg();
-            Slider.isDragg = true;
         }
     }
 
@@ -79,13 +86,10 @@ public class Player2 : MonoBehaviour
             {
                 //ドラッグ中のObjに設定
                 selectObject = hit.collider.gameObject;
-                Slider.isDragg = true;
                 return;
             }
         }
         //ドラッグ中のObj解除
         selectObject = null;
-        Slider.isDragg = false;
-
     }
 }
