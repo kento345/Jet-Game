@@ -10,7 +10,7 @@ public class Player2 : MonoBehaviour
 
     [SerializeField] private LayerMask EnemyLayer;  //敵Layer
     private SliderScript Slider;          //スライダー
-    private bool isPres = false;
+    public bool isPres = false;
     public bool isDragg = false;                 //ドラッグ中フラグ
 
 
@@ -20,12 +20,14 @@ public class Player2 : MonoBehaviour
         {
             isPres = true;
             Dragg();
+            
         }
         if (context.canceled)
         {
             isPres=false;
             selectObject = null;
             isDragg = false;
+           
         }
     }
 
@@ -36,15 +38,15 @@ public class Player2 : MonoBehaviour
 
     void Update()
     {
-        Shot();
+        //Shot();
         //スライダーの上昇処理
         Slider.Stock();
 
         if (selectObject != null)
         {
-            isDragg = true ;
+            isDragg = true;
         }
-        else 
+        else
         {
             isDragg = false;
         }
@@ -67,11 +69,11 @@ public class Player2 : MonoBehaviour
                     //ドラッグ中のObj解除
                     selectObject = null;
                 }
+              
             }
         }
-        else if(isPres) 
+        else if(isPres)
         {
-            //ドラッグ中にRayが当たったらselectObjectをnullにする
             Dragg();
         }
     }
