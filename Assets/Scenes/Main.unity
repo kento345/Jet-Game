@@ -192,7 +192,7 @@ Transform:
   m_GameObject: {fileID: 142872628}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.69, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -458,7 +458,7 @@ Transform:
   m_GameObject: {fileID: 410087039}
   serializedVersion: 2
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 2.69, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -500,7 +500,7 @@ GameObject:
   - component: {fileID: 430349955}
   - component: {fileID: 430349954}
   m_Layer: 6
-  m_Name: Cube
+  m_Name: Cube 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -589,8 +589,8 @@ Transform:
   m_GameObject: {fileID: 430349953}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 40.4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 2.69, y: 0, z: 40.4}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -638,7 +638,7 @@ Transform:
   m_GameObject: {fileID: 832575517}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.69, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -832,6 +832,7 @@ GameObject:
   - component: {fileID: 1443022003}
   - component: {fileID: 1443022004}
   - component: {fileID: 1443022008}
+  - component: {fileID: 1443022010}
   - component: {fileID: 1443022009}
   - component: {fileID: 1443022005}
   - component: {fileID: 1443022006}
@@ -852,7 +853,7 @@ Transform:
   m_GameObject: {fileID: 1443022002}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.69, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -928,9 +929,9 @@ MonoBehaviour:
     m_ActionName: 'Player/Look[/Mouse/delta]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1443022008}
-        m_TargetAssemblyTypeName: PShotController, Assembly-CSharp
-        m_MethodName: OnShot2
+      - m_Target: {fileID: 1443022010}
+        m_TargetAssemblyTypeName: BulletShotController, Assembly-CSharp
+        m_MethodName: OnShot1
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1088,10 +1089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b4612e00c4c8ea40b926136b13f2db9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 0}
   rocketPrefab: {fileID: 198992, guid: ccc28c624ccc8447baaafdd066120ef7, type: 3}
-  cutapult1: {fileID: 1520509674}
-  cutapult2: {fileID: 236298953}
   cutapult3: {fileID: 1994507533}
   EnemyLayer:
     serializedVersion: 2
@@ -1111,7 +1109,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar: 0
+  max: 500
   slide: {fileID: 2081825183}
+--- !u!114 &1443022010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443022002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce46e8a375d84b46a295b1290183afb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 8708327459126880075, guid: 2b227ada56220d74f9d69ac3c9125da8, type: 3}
+  catapult1: {fileID: 1520509674}
+  catapult2: {fileID: 236298953}
 --- !u!1 &1520509673
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,7 +1206,7 @@ GameObject:
   - component: {fileID: 1757802070}
   - component: {fileID: 1757802069}
   m_Layer: 6
-  m_Name: Cube (1)
+  m_Name: Cube 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1281,8 +1295,8 @@ Transform:
   m_GameObject: {fileID: 1757802068}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.14, y: 0, z: 32.7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 11.83, y: 0, z: 32.7}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1320,7 +1334,7 @@ RectTransform:
   m_Father: {fileID: 1706909180}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1440,7 +1454,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2081825182
 RectTransform:
   m_ObjectHideFlags: 0

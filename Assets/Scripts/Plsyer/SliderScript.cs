@@ -12,10 +12,10 @@ public class SliderScript : MonoBehaviour
 
     private bool isMax = false;                  //スライダーがMaxになったフラグ
 
-    private PShotController player;
+    private RocketShotController Rplayer;
     void Start()
     {
-        player = GetComponent<PShotController>();
+        Rplayer = GetComponent<RocketShotController>();
         //スライダーの初期値を設定
         if (slide != null)
         {
@@ -30,7 +30,7 @@ public class SliderScript : MonoBehaviour
         {
             slide.value = Mathf.Clamp(slide.value, bar, max);
         }
-        if(player.isPres)
+        if(Rplayer.isPres)
         {
             slide.gameObject.SetActive(true);
         }
@@ -43,12 +43,12 @@ public class SliderScript : MonoBehaviour
     public void Stock()
     {
         //Maxじゃないときまたはドラック中加算
-        if(!isMax　&& player.isRayhit)
+        if(!isMax && Rplayer.isRayhit)
         {
             bar++;
         }
         //ドラッグしてないときは減算
-        if(!player.isRayhit && bar != 0) 
+        if(!Rplayer.isRayhit && bar != 0) 
         {
             bar--;
         }

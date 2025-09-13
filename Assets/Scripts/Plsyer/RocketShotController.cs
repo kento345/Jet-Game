@@ -1,15 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PShotController : MonoBehaviour
+public class RocketShotController : MonoBehaviour
 {
     //-----弾,発射位置Obj-----
-    [SerializeField] private GameObject bulletPrefab;     //弾プレファブ
     [SerializeField] private GameObject rocketPrefab;     //ロケットプレファブ
-
-    [SerializeField] private Transform cutapult1;         //発射位置1
-    [SerializeField] private Transform cutapult2;         //発射位置2
-    [SerializeField] private Transform cutapult3;         //発射位置3
+    [SerializeField] private Transform cutapult3;         //発射位置
 
     //-----Ray設定-----
     private GameObject selectObject = null;               //選択中のObj
@@ -18,8 +14,8 @@ public class PShotController : MonoBehaviour
 
     [SerializeField] private LayerMask EnemyLayer;        //敵Layer
     private SliderScript Slider;                          //スライダー
-    public bool isPres = false;                           //ドラッグ中フラグ
-    public bool isRayhit = false;                         //Rayが当たったフラグ
+    [HideInInspector] public bool isPres = false;                           //ドラッグ中フラグ
+    [HideInInspector] public bool isRayhit = false;                         //Rayが当たったフラグ
 
 
     public void OnShot2(InputAction.CallbackContext context)
@@ -32,8 +28,8 @@ public class PShotController : MonoBehaviour
         if (context.canceled)
         {
             isPres = false;
-            selectObject = null;
             isRayhit = false;
+            selectObject = null;
             Instantiate(rocketPrefab, cutapult3.position, cutapult3.transform.rotation);
         }
     }
@@ -59,10 +55,9 @@ public class PShotController : MonoBehaviour
         }
     }
 
+    //-----Ray作成,ドラッグ中の処理-----
     void CreatRay()
     {
-     
-
         //クリック中にマウスの位置からRay
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -85,6 +80,7 @@ public class PShotController : MonoBehaviour
             Drag();
         }
     }
+    //-----Rayが当たった時の判定
     void Drag()
     {
         //Rayが当たったか判定

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BulletController : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
     [SerializeField] private float FirePw = 100.0f;
 
@@ -15,6 +15,7 @@ public class BulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.AddForce(transform.forward * FirePw * Time.deltaTime,ForceMode.Impulse);
+        Destroy(gameObject, 8f);
+        rb.AddForce(transform.forward * FirePw * Time.deltaTime, ForceMode.Impulse);
     }
 }
