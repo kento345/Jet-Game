@@ -34,6 +34,18 @@ public class SliderScript : MonoBehaviour
             slide.value = Mathf.Clamp(slide.value, bar, max);
         }
         slide.gameObject.SetActive(Rplayer.isPres);
+
+        if (!Rplayer.isPres)
+        {
+            bar = 0;
+            if (slide != null)
+            {
+                slide.value = bar;
+            }
+          
+            isMax = false;
+
+        }
     }
 
     public void Stock()
@@ -44,7 +56,7 @@ public class SliderScript : MonoBehaviour
             bar++;
         }
         //ƒhƒ‰ƒbƒO‚µ‚Ä‚È‚¢‚Æ‚«‚ÍŒ¸ŽZ
-        if(!Rplayer.isRayhit && bar != 0) 
+        if(!Rplayer.isRayhit && bar != 0 /*&& !isMax*/) 
         {
             bar--;
         }
