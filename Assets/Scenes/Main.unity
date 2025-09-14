@@ -1091,6 +1091,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rocketPrefab: {fileID: 198992, guid: ccc28c624ccc8447baaafdd066120ef7, type: 3}
   cutapult3: {fileID: 1994507533}
+  selectObject: {fileID: 0}
   EnemyLayer:
     serializedVersion: 2
     m_Bits: 64

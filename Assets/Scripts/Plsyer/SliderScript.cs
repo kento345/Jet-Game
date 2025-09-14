@@ -13,6 +13,9 @@ public class SliderScript : MonoBehaviour
     private bool isMax = false;                  //スライダーがMaxになったフラグ
 
     private RocketShotController Rplayer;
+
+    public GameObject lockedTarget { get; private set; } = null;
+
     void Start()
     {
         Rplayer = GetComponent<RocketShotController>();
@@ -30,14 +33,7 @@ public class SliderScript : MonoBehaviour
         {
             slide.value = Mathf.Clamp(slide.value, bar, max);
         }
-        if(Rplayer.isPres)
-        {
-            slide.gameObject.SetActive(true);
-        }
-        else
-        {
-            slide.gameObject.SetActive(false);
-        }
+        slide.gameObject.SetActive(Rplayer.isPres);
     }
 
     public void Stock()
@@ -61,6 +57,7 @@ public class SliderScript : MonoBehaviour
         if (bar == max)
         {
             isMax = true;
+            lockedTarget = Rplayer.selectObject;
         }
     }
 }

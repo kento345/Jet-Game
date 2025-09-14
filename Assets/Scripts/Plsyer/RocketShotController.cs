@@ -8,14 +8,14 @@ public class RocketShotController : MonoBehaviour
     [SerializeField] private Transform cutapult3;         //発射位置
 
     //-----Ray設定-----
-    private GameObject selectObject = null;               //選択中のObj
+    public GameObject selectObject = null;               //選択中のObj
     private Ray ray;                                      //飛ばすRay
     private RaycastHit hit;                               //Rayが当たった情報
 
     [SerializeField] private LayerMask EnemyLayer;        //敵Layer
     private SliderScript Slider;                          //スライダー
-    [HideInInspector] public bool isPres = false;                           //ドラッグ中フラグ
-    [HideInInspector] public bool isRayhit = false;                         //Rayが当たったフラグ
+    [HideInInspector] public bool isPres = false;         //ドラッグ中フラグ
+    [HideInInspector] public bool isRayhit = false;       //Rayが当たったフラグ
 
 
     public void OnShot2(InputAction.CallbackContext context)
